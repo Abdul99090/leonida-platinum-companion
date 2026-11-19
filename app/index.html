@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum Companion — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="sunset" aria-hidden="true"></div>
+  <div class="masthead-in">
+    <div class="masthead-text">
+      <p class="kicker">GRAND THEFT AUTO VI · PS5 · TROPHY GUIDE &amp; TRACKER</p>
+      <h1>Leonida Platinum Companion</h1>
+      <p class="dek">All <strong>55 official trophies</strong> with an original, source-cited guide for each one, a staged roadmap to the platinum, and a tracker that saves in your browser.</p>
+    </div>
+    <div class="progress-card" aria-label="Your progress">
+      <div class="progress-top">
+        <span class="progress-big" id="stat-earned">0 / 55</span>
+        <span class="progress-label">trophies earned</span>
+        <span class="progress-pct" id="stat-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="stat-fill"></div></div>
+      <div class="grade-counters" id="grade-counters"></div>
+      <p class="saved-note" id="saved-note">Progress saves automatically in this browser (localStorage).</p>
+      <div class="header-actions">
+        <button class="btn btn-primary" id="btn-export" type="button">⬇ Export progress</button>
+        <button class="btn btn-ghost" id="btn-import" type="button">⬆ Import progress</button>
+        <input type="file" id="file-import" accept="application/json,.json" hidden>
+        <label class="switch-wrap" for="toggle-spoiler">
+          <input type="checkbox" id="toggle-spoiler">
+          <span class="switch" aria-hidden="true"></span>
+          <span class="switch-label">Spoiler mode<br><small>hide secret trophies until earned</small></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="toolbar" aria-label="Tracker controls">
+  <div class="tabs" role="tablist">
+    <button class="tab is-active" id="tab-tracker" type="button" role="tab">Tracker</button>
+    <button class="tab" id="tab-roadmap" type="button" role="tab">Roadmap to Platinum</button>
+  </div>
+  <div class="filters" id="filters">
+    <input type="search" id="filter-query" placeholder="Search trophies…" aria-label="Search trophies">
+    <div class="chips" id="kind-chips" role="group" aria-label="Filter by kind"></div>
+    <select id="filter-grade" aria-label="Filter by grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+    <button class="chip chip-warn" id="chip-missable" type="button" aria-pressed="false">⚠ Missable watch-list</button>
+    <label class="hide-earned"><input type="checkbox" id="toggle-hide-earned"> Hide earned</label>
+  </div>
+</nav>
+
+<main>
+  <section id="view-tracker" class="view">
+    <div class="tracker-grid">
+      <div class="list-wrap">
+        <p class="list-meta" id="list-meta"></p>
+        <ul class="rows" id="rows"></ul>
+      </div>
+      <aside class="guide-panel" id="guide-panel" aria-label="Trophy guide"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <div class="roadmap-intro">
+      <h2>How to read this roadmap</h2>
+      <p><strong>Fact</strong> is the official PlayStation trophy text, quoted verbatim on every card. <strong>Inference</strong> — kind, stage order and missable flags — is derived from that text and is always labelled <em>inferred</em>. No official description for this game states a one-chance window, so there are <strong>no confirmed missable trophies</strong>; the two flags below are an honest watch-list, not a claim.</p>
+      <p class="watch-note">⚠ <strong>Watch-list (inferred):</strong> <em>In The Beginning…</em> (reads like an opening-scene moment) and <em>Actions Speak Louder</em> (choice-based). Keep a manual save before big story decisions and take the Ocean Beach moment when the opening offers it.</p>
+    </div>
+    <div id="roadmap-stages"></div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p><strong>Sources &amp; method.</strong> Trophy names, descriptions and grades are reproduced exactly as PlayStation publishes them; the list is cross-checked against Exophase (exophase.com/game/grand-theft-auto-vi-psn/trophies/) and PSNProfiles. Hidden/secret flags come from the same published list data. Every guide below the official text is original writing for this app and names its sources on the card. An unofficial fan tool — not affiliated with Rockstar Games or Take-Two Interactive.</p>
+  <p id="toast" role="status"></p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
