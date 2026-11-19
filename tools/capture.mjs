@@ -20,7 +20,13 @@ const PORT = 8123;
 const MAX_BYTES = 262144;
 
 const shotsDoc = JSON.parse(readFileSync(join(entryRoot, 'shots.json'), 'utf8'));
-const shots = shotsDoc.shots;
+// An optional file name on the command line re-captures just that one
+// shot (handy when a single frame is re-staged); no argument means all.
+const onlyFile = process.argv[2];
+const shots = onlyFile ? shotsDoc.shots.filter((s) => s.file === onlyFile) : shotsDoc.shots;
+if (shots.length === 0) {
+  throw new Error('no shot in shots.json matches ' + String(onlyFile));
+}
 
 const chromiumBinary = join(
   process.env.HOME,
@@ -57,6 +63,14 @@ try {
       page.on('pageerror', (e) => console.log('PAGEERROR', shot.file, String(e)));
       await page.goto(`http://localhost:${PORT}/${shot.url}`, { waitUntil: 'load' });
       await page.waitForFunction(() => window.__shotReady === true, null, { timeout: 30000 });
+      // A shot may pin its framing in shots.json. "top" undoes any
+      // scroll target the app's staging applied and frames the page
+      // from the masthead down, so header-level controls (the spoiler
+      // toggle) and the first list rows stay in the picture.
+      if (shot.scroll === 'top') {
+        await page.evaluate(() => window.scrollTo(0, 0));
+        await page.waitForTimeout(250);
+      }
       await page.waitForTimeout(200);
 
       const outPath = join(entryRoot, 'screenshots', shot.file);
