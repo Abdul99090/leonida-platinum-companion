@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum Companion — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <p class="kicker">An offline field guide · Grand Theft Auto VI · PlayStation 5</p>
+    <h1>Leonida Platinum Companion</h1>
+    <p class="standfirst">All 55 official trophies with a cited guide to each, a six-stage roadmap to the platinum, and a tracker that saves on this device. No account, no network, no spoilers unless you ask.</p>
+  </div>
+  <section class="progress-band" aria-label="Your progress">
+    <div class="progress-lead">
+      <span id="progress-count">0 / 55</span>
+      <span id="progress-percent">0% earned</span>
+    </div>
+    <div class="progress-bar"><div id="progress-fill"></div></div>
+    <ul class="grade-counters" id="grade-counters"></ul>
+    <div class="masthead-actions">
+      <button id="export-btn" type="button">Export progress</button>
+      <label class="import-btn">Import progress <input id="import-file" type="file" accept="application/json"></label>
+      <label class="spoiler-switch">Spoiler shield
+        <input id="spoiler-toggle" type="checkbox">
+        <span id="spoiler-state">Off — secrets shown</span>
+      </label>
+    </div>
+    <p id="import-note" role="status"></p>
+  </section>
+</header>
+
+<nav class="view-tabs" aria-label="Views">
+  <button id="tab-tracker" type="button" class="tab active">Tracker &amp; guides</button>
+  <button id="tab-roadmap" type="button" class="tab">Roadmap to the platinum</button>
+</nav>
+
+<main>
+  <section id="tracker-view">
+    <div class="toolbar" aria-label="Filters">
+      <div class="chips" id="kind-chips" role="group" aria-label="Filter by kind"></div>
+      <label>Grade
+        <select id="grade-select">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Search <input id="search-box" type="search" placeholder="Trophy name or description"></label>
+      <label class="check"><input id="missable-only" type="checkbox"> Watch-list only</label>
+      <label class="check"><input id="hide-earned" type="checkbox"> Hide earned</label>
+    </div>
+    <p id="result-count" class="result-count"></p>
+    <div class="tracker-layout">
+      <ol id="trophy-list" class="trophy-list"></ol>
+      <article id="guide-panel" class="guide-panel" aria-label="Trophy guide"></article>
+    </div>
+  </section>
+
+  <section id="roadmap-view" hidden>
+    <div class="roadmap-explainer">
+      <h2>Fact first, inference labelled</h2>
+      <p>This roadmap is built from the official trophy descriptions: the chapter and mission order, the collectible sets and the counts PlayStation itself publishes (250 stunts, 42 Shooting Range challenges, 14 drone-race locations, 52 areas, 9 gangs, 8 garages). Those are facts, and the stages below follow them.</p>
+      <p><strong>Missables:</strong> no official description states a one-chance window, so this guide confirms <strong>no missable trophies</strong>. Two trophies are flagged <strong>⚠ INFERRED watch-list</strong> — In The Beginning… (id 44) and Actions Speak Louder (id 48) — because their descriptions describe one-off moments and accumulating choices. That flag is our inference, labelled as inference everywhere, not a fact from PlayStation.</p>
+    </div>
+    <div id="roadmap-stages"></div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p>Data: official names, descriptions and grades as PlayStation publishes them, via Exophase and PSNProfiles; secret flags from the official case files for the same 55 ids. Guides, kinds and roadmap stages are this entry's own curation, written from the official descriptions and citing their sources on every card. Original editorial design — no Rockstar artwork, logos or fonts. Progress never leaves this browser except in a file you export yourself.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
